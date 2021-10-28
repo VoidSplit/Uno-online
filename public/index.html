@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+  	<meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg" href="images/uno.svg">
+    <title>Uno</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="home" class="box homepage">
+        <img src="images/logo.png" alt="Logo UNO">
+        <form action="#">
+          <button class="button" onclick="joinParty()">Rejoindre une partie</button>
+          <button class="button" onclick="createParty()">Créer une partie</button>
+        </form>
+      </div>
+      <div id="join" class="informations box disabled">
+        <form action="#">
+          <p>Entrez votre pseudo</p>
+          <input id="joinUsername" type="text" placeholder="Player1554">
+        </form>
+        <div id="roomList" class="game-list">
+          
+        </div>
+        <div class="buttons-wrapper">
+          <button class="button cancel" onclick="cancel()">Retour</button>
+        </div>
+      </div>
+      <div id="create" class="informations box disabled">
+        <form id="formCreate" action="#">
+          <p>Entrez votre pseudo</p>
+          <input id="username" type="text" placeholder="Player1554">
+          <p>Entrez le nom de la partie</p>
+          <input id="roomName" type="text" placeholder="Partie de Player1554">
+          <p>Entrez le nombre de joueurs maximum</p>
+          <input id="maxPlayer" type="number" value="10" max="10" min="2">
+          <div class="private">
+            <input id="privacity" type="checkbox" id="private">
+            <p>Partie privée</p>
+          </div>
+          <div class="buttons-wrapper">
+            <button class="button cancel" onclick="cancel()">Retour</button>
+            <button type="submit" class="button">Créer</button>
+          </div>
+        </form>
+        
+      </div>
+      <div class="box disabled" id="waiting">
+        <h1>En attente de joueurs</h1>
+        <div class="link">
+          <div class="inner">
+            <p>Vous pouvez inviter vos amis avec ce lien.</p>
+            <a href="#">http://localhost:3000/?game=F5D3azFf</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io({autoConnect: true});
+    </script>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
