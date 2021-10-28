@@ -2,19 +2,28 @@
 <html lang="en">
   <head>
   	<meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg" href="images/uno.svg">
+    <link rel="stylesheet" href="ressources/css/style.css">
+    <link rel="icon" type="image/svg" href="ressources/images/uno.svg">
     <title>Uno</title>
   </head>
   <body>
+    <!--
+      * All the game's HTML is on this file divised by sections
+    -->
     <div id="app">
+      <!--
+        * Home section it's the main section where you choose to join or create a room
+      -->
       <div id="home" class="box homepage">
-        <img src="images/logo.png" alt="Logo UNO">
+        <img src="ressources/images/logo.png" alt="Logo UNO">
         <form action="#">
           <button class="button" onclick="joinParty()">Rejoindre une partie</button>
           <button class="button" onclick="createParty()">Créer une partie</button>
         </form>
       </div>
+      <!--
+        * The section where you choose a room to play with other people
+      -->
       <div id="join" class="informations box disabled">
         <form action="#">
           <p>Entrez votre pseudo</p>
@@ -27,6 +36,9 @@
           <button class="button cancel" onclick="cancel()">Retour</button>
         </div>
       </div>
+      <!--
+        * The section where you create a room
+      -->
       <div id="create" class="informations box disabled">
         <form id="formCreate" action="#">
           <p>Entrez votre pseudo</p>
@@ -46,21 +58,29 @@
         </form>
         
       </div>
+      <!--
+        * The waiting room
+      -->
       <div class="box disabled" id="waiting">
         <h1>En attente de joueurs</h1>
         <div class="link">
           <div class="inner">
             <p>Vous pouvez inviter vos amis avec ce lien.</p>
-            <a href="#">http://localhost:3000/?game=F5D3azFf</a>
+            <div id="link-to-share">
+
+            </div>
           </div>
         </div>
       </div>
+      <!--
+        TODO the game section 
+      -->
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script>
       const socket = io({autoConnect: true});
     </script>
     <script src="/jquery/jquery.min.js"></script>
-    <script src="/main.js"></script>
+    <script src="/ressources/js/main.js"></script>
   </body>
 </html>
