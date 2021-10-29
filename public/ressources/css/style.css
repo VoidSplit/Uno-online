@@ -174,10 +174,14 @@ body {
 #waiting {
     flex-direction: column;
 }
+#waiting h1 {
+    margin-top: 15px;
+    color: #fff;
+}
 #waiting .link {
     position: absolute;
     width: 100%;
-    bottom: 15px;
+    bottom: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -192,4 +196,115 @@ body {
     border-radius: 5px;
     overflow: hidden;
     padding: 15px 40px;
+}
+
+.custom-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+    background: #ffffff; 
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: #ffbcbe; 
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #ff9a9e; 
+}
+
+.room-player-list {
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    margin-top: 15px;
+    border-radius: 5px;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    overflow: hidden scroll;
+}
+.room-player-list .playerItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+.room-player-list .playerItem:hover {
+    background-color: #ffe2e3;
+}
+
+
+
+
+
+.game {
+    background-color: #EE161F;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+.card {
+    width: 150px;
+}
+.game .middle {
+    display: flex;
+    align-self: center;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+
+}
+.game .middle .inner {
+    display: flex;
+    gap: 50px;
+}
+.player {
+    background-color: rgb(235, 235, 235);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.player.win {
+    background-color: rgb(29, 29, 29);
+    color: #fff
+}
+.player.small {
+    height: 50px;
+    width: 50px;
+}
+.player.bigAvatar {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
+.player-list {
+    position: absolute;
+    left: 50%;
+    top: 25px;
+    transform: translateX(-50%);
+    width: 80vw;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.firstPerson {
+    top: 70%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+.secondPerson {
+    top: 35%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+.thirdPerson {
+    top: 70%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+.fourthPerson {
+    top: 35%;
+    right: 5%;
+    transform: translateY(-50%);
 }

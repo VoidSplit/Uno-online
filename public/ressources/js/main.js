@@ -4,7 +4,7 @@
 let homeSection = document.getElementById('home')
 let joinSection = document.getElementById('join')
 let createSection = document.getElementById('create')
-let waitingSection = document.getElementById('waiting');
+let waitingSection = document.getElementById('waiting')
 
 function joinParty() {
   homeSection.classList.toggle('disabled')
@@ -18,19 +18,21 @@ function cancel() {
   homeSection.classList.remove('disabled')
   joinSection.classList.add('disabled')
   createSection.classList.add('disabled')
+  
 }
 
 /**
  * get all informations from the create and join section's form
  */
 
-const usernameInput = document.getElementById('username');
-const joinUsernameInput = document.getElementById('joinUsername');
-const roomNameInput = document.getElementById('roomName');
-const maxPlayersInput = document.getElementById('maxPlayer');
-const privateCheck = document.getElementById('privacity');
-const roomListDOM = document.getElementById('roomList');
-const linkToShare = document.getElementById('link-to-share');
+const usernameInput = document.getElementById('username')
+const joinUsernameInput = document.getElementById('joinUsername')
+const roomNameInput = document.getElementById('roomName')
+const maxPlayersInput = document.getElementById('maxPlayer')
+const privateCheck = document.getElementById('privacity')
+const roomListDOM = document.getElementById('roomList')
+const playerListDOM = document.getElementById('playerList')
+const linkToShare = document.getElementById('link-to-share')
 
 /**
  * define the player object template
@@ -105,10 +107,41 @@ socket.on("start game", (players) => {
 /**
  * when the owner join a room we display the link to share the room with other people
  */
-socket.on('join room', (roomId) => {
+socket.on('join room', (roomId, player, room) => {
+  let htmlUser = "";
   player.roomId = roomId;
   linkToShare.innerHTML = `<a href="${window.location.href}?room=${player.roomId}" target="_blank">${window.location.href}?room=${player.roomId}</a>`;
   console.log("Utilisateur connecté a la salle")
+  
+  console.log(player, room)/*
+  if(player.host === true) {
+  }
+  
+  if(rooms.length > 0) {
+    players.forEach(room => {
+      if(room.players.length !== 2) {
+        htmlUser += `<div class="playerItem">
+                      <div class="username">${player.username}</div>
+                      <div class="category">Owner</div>
+                    </div>`
+      }
+    });
+  }
+  if(htmlUser !== "") {
+    playerListDOM.innerHTML = htmlUser;
+  }
+*/
+
+
+
+
+
+
+  // moove the user to the waiting room
+  homeSection.classList.add('disabled')
+  joinSection.classList.add('disabled')
+  createSection.classList.add('disabled')
+  waitingSection.classList.remove('disabled')
 });
 /*
 TODO start the game 

@@ -6,6 +6,7 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 
 let rooms = []; // define the list of the rooms actually not empty
+
 /**
  * define all the Routes (jquery & public directory)
  */
@@ -54,7 +55,7 @@ io.on('connection', (socket) => {
      */
     socket.join(room.id); 
 
-    io.to(socket.id).emit('join room', room.id)
+    io.to(socket.id).emit('join room', room.id, player, room)
 
     /**
      * if the room has 2 players, the game start
@@ -103,7 +104,7 @@ server.listen(3000, () => {
  * this function create the room 
  */
 function createRoom(player) {
-  const room = {id: roomId(), players: []};
+  const room = { id: roomId(), players: [] };
 
   player.roomId = room.id;
   room.players.push(player);

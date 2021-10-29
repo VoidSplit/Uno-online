@@ -63,11 +63,20 @@
       -->
       <div class="box disabled" id="waiting">
         <h1>En attente de joueurs</h1>
+        <div id="playerList" class="room-player-list custom-scroll">
+          <div class="playerItem">
+            <div class="username"></div>
+            <div class="category"></div>
+          </div>
+        </div>
+        <div class="buttons-wrapper">
+          <button class="button">Lancer la partie</button>
+          <button class="button cancel" onclick="cancel()">Retour</button>
+        </div>
         <div class="link">
           <div class="inner">
             <p>Vous pouvez inviter vos amis avec ce lien.</p>
             <div id="link-to-share">
-
             </div>
           </div>
         </div>
@@ -75,6 +84,59 @@
       <!--
         TODO the game section 
       -->
+      <div class="game disabled">
+        <div class="player-list">
+          <div class="player small">8</div>
+          <div class="player small">7</div>
+          <div class="player small">3</div>
+          <div class="player small">5</div>
+          <div class="player small">1</div>
+          <div class="player small">8</div>
+          <div class="player small">7</div>
+          <div class="player small">3</div>
+          <div class="player small">5</div>
+          <div class="player small">1</div>
+          <div class="player small">8</div>
+          <div class="player small">7</div>
+          <div class="player small">3</div>
+          <div class="player small">5</div>
+          <div class="player small">1</div>
+          <div class="player small">8</div>
+          <div class="player small">7</div>
+          <div class="player small">3</div>
+          <div class="player small">5</div>
+          <div class="player small">1</div>
+          <div class="player small">8</div>
+          <div class="player small">7</div>
+          <div class="player small">3</div>
+          <div class="player small">5</div>
+          <div class="player small">1</div>
+          <div class="player small">8</div>
+          <div class="player small">7</div>
+          <div class="player small">3</div>
+          <div class="player small">5</div>
+          <div class="player small">1</div>
+          <div class="player small">8</div>
+          <div class="player small win">0</div>
+          <div class="player small win">0</div>
+          <div class="player small win">0</div>
+          <div class="player small win">0</div>
+          <div class="player small win">0</div>
+        </div>
+        <div class="player bigAvatar firstPerson">1</div>
+        <div class="player bigAvatar secondPerson">3</div>
+        <div class="player bigAvatar thirdPerson">5</div>
+        <div class="player bigAvatar fourthPerson">6</div>
+        <div class="middle">
+          <div class="inner">
+            <div class="deck">
+              <img class="card" src="ressources/cards/Back.svg" alt="" srcset="">
+            </div>
+            <div class="play">
+              <img class="card" src="ressources/cards/Back.svg" alt="" srcset=""></div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script>
