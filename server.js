@@ -54,14 +54,19 @@ io.on('connection', (socket) => {
      * after the player has joined the list he is made to join the room
      */
     socket.join(room.id); 
-
+    /**
+     * refresh all the list that need to be refresh
+     */
+    io.in(room.id).emit('refresh players', room.id, player, room)
+    io.emit('list rooms', rooms)
+    
     io.to(socket.id).emit('join room', room.id, player, room)
 
     /**
-     * if the room has 2 players, the game start
+     * if the room is full, the game start
      */
     // TODO Create an interface with a start game button
-    if(room.players.length === 2) {
+    if(room.players.length === room.players[0].roomMaxPlayers) {
       io.to(room.id).emit('start game', room.players)
     }
   });
@@ -83,13 +88,22 @@ io.on('connection', (socket) => {
      * we filter all the rooms availables
      */
     rooms.forEach(r => {
-      r.players.forEach(p => {
+      r.players.forEach((p, index) => {
         if(p.socketId === socket.id && p.host) {
           room = r;
           rooms = rooms.filter(r => r !== room);
         }
+        // delete the user when disconnect
+        if(p.socketId === socket.id ) {
+          let user = p;
+          let userIndex = r.players.indexOf(user);
+          r.players.splice(userIndex, userIndex)
+        }
+        io.in(p.roomId).emit('refresh players', null, p, r) // refresh player list for all clients
+        
       })
     })
+    io.emit('list rooms', rooms) // refresh rooms if a room has been deleted
   });
 });
 
