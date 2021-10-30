@@ -24,10 +24,11 @@ First install <a href="https://nodejs.org/en/">NodeJs</a> and initialize it on t
 ```
 $ npm init
 ```
-You must then install the <a href="https://socket.io/">socket</a> and <a href="https://expressjs.com/fr/">express</a> modules.
+You must then install the <a href="https://socket.io/">socket</a>, <a href="https://jquery.com/">jquery</a> and <a href="https://expressjs.com/fr/">express</a> modules.
 ```
 $ npm install socket.io
 $ npm install express
+$ npm install jquery
 ```
 ### Features
 - Supported platforms:
