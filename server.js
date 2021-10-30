@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
       console.log(`[create room] ${room.id} ${player.username}`)
     } else {
       /**
-       * else, we push the player into the room
+       * join button or link
        */
       room = rooms.find(r => r.id == player.roomId);
 
@@ -76,6 +76,10 @@ io.on('connection', (socket) => {
    */
   socket.on('get rooms', () => {
     io.to(socket.id).emit('list rooms', rooms)
+  })
+  socket.on('update', () => {
+    io.emit('list rooms', room)
+    io.in(room.id).emit('refresh players', room.id, player, room)
   })
   /**
    * when disconnected, the player's room will be deleted

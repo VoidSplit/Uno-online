@@ -119,6 +119,16 @@ body {
 .informations .game-list .item .roomButton:hover {
     background-color: #66f376;
 }
+
+.informations .game-list .item .roomButtonFull {
+    border: none;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    padding: 10px 17px;
+}
+.informations .game-list .item .roomButtonFull:hover {
+    background-color: #bdbdbd;
+}
 .private {
     display: flex;
     gap: 5px;

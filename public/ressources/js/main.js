@@ -5,6 +5,7 @@ let homeSection = document.getElementById('home')
 let joinSection = document.getElementById('join')
 let createSection = document.getElementById('create')
 let waitingSection = document.getElementById('waiting')
+let gameSection = document.getElementById('game')
 
 
 /**
@@ -41,6 +42,7 @@ const player = {
  * get the rooms and display them
  */
 socket.emit('get rooms');
+
 socket.on('list rooms', (rooms) => {
   let html = "";
 
@@ -49,8 +51,8 @@ socket.on('list rooms', (rooms) => {
       if(room.players.length !== room.players[0].roomMaxPlayers) {
         html += `<div class="item">
                   <p class="name">${room.players[0].roomName}</p>
-                  <p class="count">1/${room.players[0].roomMaxPlayers}</p>
-                  <button data-room="${room.id}" class="roomButton">Rejoindre la salle</button>
+                  <p class="count">${room.players.length}/${room.players[0].roomMaxPlayers}</p>
+                  ${room.players.length == room.players[0].roomMaxPlayers ? '<button data-room="` + room.id + `" class="roomButtonFull">Game Full</button>' : `<button data-room="` + room.id + `" class="roomButton">Rejoindre la salle</button>`}
                 </div>`;
       }
     });
@@ -80,9 +82,8 @@ $("#formCreate").on('submit', function (e) {
   player.host = true;
   player.turn = true;
   player.socketId = socket.id;
-  player.roomName = roomNameInput.value;
   if(roomNameInput.value !== "") {
-    player.roomName = maxPlayersInput.value;
+    player.roomName = roomNameInput.value;
   } else {
     player.roomName = `Salon de ${player.username}`;
   }
@@ -194,6 +195,13 @@ function createParty() {
    */
   homeSection.classList.toggle('disabled')
   createSection.classList.toggle('disabled')
+  socket.emit('list rooms');
+}
+function playButton() {
+  /**
+   * refresh all the lists
+   */
+
   socket.emit('list rooms');
 }
 function cancel() {
