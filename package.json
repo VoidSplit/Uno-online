@@ -1,24 +1,24 @@
 {
-  "name": "socket-uno",
-  "version": "0.0.1",
-  "description": "UNO game on javascript",
+  "name": "final-uno",
+  "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:public/resources/css/style.css --style compressed",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/eperezcosano/Uno.git"
-  },
-  "author": "Izan Pérez Cosano",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/eperezcosano/Uno/issues"
-  },
-  "homepage": "https://github.com/eperezcosano/Uno#readme",
+  "author": "VoidSplit",
+  "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jquery": "^3.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.1.3",
+    "mongoose": "^6.0.12",
+    "sass": "^1.43.4",
     "socket.io": "^4.3.1"
   }
 }

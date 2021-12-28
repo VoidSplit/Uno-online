@@ -9,59 +9,58 @@
     <title>Uno Connexion</title>
 </head>
 <body>
-    <div id="reg">
+    <div id="log">
         <div class="header">
-            <h1>Sign up</h1>
+            <h1>Login</h1>
             <a href="#">
                 <div class="g-button">
                     <div class="icon">
                         <i class="fab fa-google"></i>
                     </div>
-                    <p>Sign up with Google</p>
+                    <p>Login with Google</p>
                 </div>
             </a>
         </div>
         <form action="#">
-            <label for="name">Name</label>
-            <input id="name" type="text" autocomplete="off" required placeholder="Leslie Alexander">
             <label for="mail">Email</label>
             <input id="mail" type="email" autocomplete="off" required placeholder="example@mail.com">
             <label for="password">Password</label>
             <input id="password" type="password" autocomplete="off" required placeholder="at least 8 characters">
-            <div class="tos">
-                <input type="checkbox" required id="tos">
-                <label for="tos">I agree with <a href="#">Terms</a> and <a href="#">Conditions</a></label>
-            </div>
-            <input type="submit" value="Sign up">
+            <input type="submit" value="Login">
         </form>
         <p class="data"></p>
         <div class="other">
-            <p>Already have an account?</p>
-            <a href="login.html">Log in</a>
+            <p>Don't have an account?</p>
+            <a href="index.html">Sign up</a>
         </div>
     </div>
     <script>
-        const form = document.getElementById('reg')
+        const form = document.getElementById('log')
+        const data = document.querySelectorAll('.data')
         form.addEventListener('submit', registerUser)
 
         async function registerUser(event) {
             event.preventDefault()
-            const username = document.getElementById('name').value
             const email = document.getElementById('mail').value
             const password = document.getElementById('password').value
 
-            const result = await fetch('/api/register', {
+            const result = await fetch('/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    username,
                     email,
                     password
                 })
             }).then((res) => res.json())
             //console.log(res)
+            if(result.status === 'ok') {
+                console.log('got the token: ', result.data)
+                data[0].innerHTML = ''
+            } else {
+                data[0].innerHTML = result.error
+            }
         }
     </script>
 </body>

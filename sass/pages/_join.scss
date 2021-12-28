@@ -1,0 +1,70 @@
+#app #joinroom {
+    .informations {
+        height: calc(100% - 80px);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .name {
+            margin-top: 50px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            margin-left: 10%;
+        }
+        #roomList {
+            margin-left: 10%;
+            background-color: #fff;
+            width: 640px;
+            height: 180px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 8;
+        }
+    }
+    .button-wrapper {
+        position: absolute;
+        bottom: 0;
+        height: 80px;
+        gap: 80px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #app #joinroom {
+        .informations {
+            height: calc(100% - 80px);
+            .name {
+                width: 80%;
+                margin-left: 10%;
+                input {
+                    width: 100%;
+                }
+            }
+            #roomList {
+                width: 80%;
+                margin-left: 10%;
+                height: calc(100vh - 250px);
+            }
+        }
+        .button-wrapper {
+            height: 80px;
+            gap: 20px;
+        }
+    }
+}
+@media screen and (max-width: 520px) {
+    #app #joinroom {
+        .button-wrapper {
+            height: 80px;
+            gap: 20px;
+            flex-direction: column-reverse;
+            a {
+                width: 80%;
+                .button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

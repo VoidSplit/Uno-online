@@ -1,0 +1,73 @@
+.game {
+    background-color: #EE161F;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+.card {
+    width: 150px;
+}
+.game .middle {
+    display: flex;
+    align-self: center;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+
+}
+.game .middle .inner {
+    display: flex;
+    gap: 50px;
+}
+.player {
+    background-color: rgb(235, 235, 235);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.player.win {
+    background-color: rgb(29, 29, 29);
+    color: #fff
+}
+.player.small {
+    height: 50px;
+    width: 50px;
+}
+.player.bigAvatar {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+}
+.player-list {
+    position: absolute;
+    left: 50%;
+    top: 25px;
+    transform: translateX(-50%);
+    width: 80vw;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.firstPerson {
+    top: 70%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+.secondPerson {
+    top: 35%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+.thirdPerson {
+    top: 70%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+.fourthPerson {
+    top: 35%;
+    right: 5%;
+    transform: translateY(-50%);
+}

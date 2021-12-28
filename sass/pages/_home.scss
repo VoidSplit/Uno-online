@@ -1,0 +1,46 @@
+#app #homepage {
+    .button-wrapper {
+        position: absolute;
+        bottom: 0;
+        height: 150px;
+        gap: 40px;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100% - 150px);
+        img {
+            width: 300px;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #app #homepage {
+        .button-wrapper {
+            height: 180px;
+            gap: 20px;
+        }
+        .logo {
+            img {
+                width: 60%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 740px) {
+    #app #homepage {
+        .button-wrapper {
+            height: 250px;
+            gap: 20px;
+            flex-direction: column;
+            a {
+                width: 80%;
+                .button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

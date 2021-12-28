@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <title>Uno</title>
+</head>
+<body>
+    <div id="app">
+        <div class="box" id="creatingroom">
+            <div class="informations">
+                
+                <form action="#" method="post">
+                    <label class="comp" for="createUsernameInput">Entrez un pseudo</label>
+                    <input class="comp" type="text" name="createUsername" id="createUsernameInput">
+                    <label class="comp" for="partyNameInput">Entrez le nom de la partie</label>
+                    <input class="comp" type="text" name="createUsername" id="partyNameInput">
+                    <label class="comp" for="playerMaxInput">Entrez le nombre de joueurs maximum</label>
+                    <input class="comp" type="number" name="createUsername" id="playerMaxInput" min="2" max="10">
+                    <div class="private">
+                        <input type="checkbox" name="privateCheck" id="privateCheck">
+                        <label class="comp" for="privateCheck">Partie privée</label>
+                    </div>
+                </form>
+            </div>
+            <form action="#">
+                <div class="button-wrapper">
+                    <button class="big button">Retour</button>
+                    <button class="big button">Créer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io({autoConnect: true});
+    </script>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="../resources/js/main.js"></script>
+</body>
+</html>

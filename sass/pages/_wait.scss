@@ -1,0 +1,91 @@
+#app #waitingroom {
+    .informations {
+        height: calc(100% - 80px);
+        display: flex;
+        flex-direction: column;
+        h1 {
+            color: #fff;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+        }
+        #playerList {
+            margin-left: 10%;
+            background-color: rgb(255, 255, 255);
+            width: 80%;
+            border-radius: 5px;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            overflow: hidden scroll;
+            transition: height .5s;
+        }
+        .link {
+            position: absolute;
+            width: 100%;
+            max-width: 80vw;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(0, 0, 0);
+            .inner {
+                background-color: #fff;
+                border-radius: 5px;
+                overflow: hidden;
+                padding: 15px 40px;
+                a {
+                    color: rgb(70, 92, 214);
+                    text-decoration: un;
+                }
+            }
+        }
+    }
+    .button-wrapper {
+        position: absolute;
+        bottom: 0;
+        height: 80px;
+        gap: 80px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #app #waitingroom {
+        .informations {
+            height: calc(100% - 150px);
+            .link {
+                left: 10%;
+            }
+            #playerList {
+                height: calc(100vh - 308px);
+            }
+        }
+        .button-wrapper {
+            height: 150px;
+            gap: 20px;
+        }
+    }
+}
+@media screen and (max-width: 520px) {
+    #app #waitingroom {
+        .informations {
+            #playerList {
+                height: calc(100vh - 358px);
+            }
+        }
+        .button-wrapper {
+            gap: 20px;
+            flex-direction: column-reverse;
+            a {
+                width: 80%;
+                .button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

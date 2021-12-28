@@ -1,0 +1,35 @@
+.button-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transition: width .5s;
+    a {
+        height: 50px;
+        width: 210px;
+        transition: width .5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .button.big {
+        transition: width .5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        background-color: rgb(255, 255, 255);
+        border: 0;
+        height: 50px;
+        width: 210px;
+        border-radius: 15px;
+        outline: #EE161F solid 3px;
+        will-change: outline-offset;
+        transition: outline-offset .1s;
+        font-size: 1.2rem;
+        &:hover {
+            outline-offset: -5px;
+        }
+    }
+}

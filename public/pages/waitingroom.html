@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <title>Uno</title>
+</head>
+<body>
+    <div id="app">
+        <div class="box" id="waitingroom">
+            <div class="informations">
+                <h1>En attente de joueurs</h1>
+                <div id="playerList">
+    
+                </div>
+                <div class="link">
+                    <div class="inner">
+                        <p>Vous pouvez inviter vos amis avec ce lien:</p>
+                        <div id="shareLink" class="shareLink">
+                            <a href="#">http://localhost:3000/?#?room=v8h8yhkaa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form action="#">
+                <div class="button-wrapper">
+                    <button class="big button">Lancer la partie</but>
+                    <button class="big button">Retour</but>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io({autoConnect: true});
+    </script>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="../resources/js/main.js"></script>
+</body>
+</html>

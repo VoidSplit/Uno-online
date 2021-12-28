@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <title>Uno</title>
+</head>
+<body>
+    <div id="app">
+        <div class="box" id="homepage">
+            <div class="logo">
+                <img src="../resources/images/logo.png" alt="Logo uno">
+            </div>
+            <form action="#">
+                <div class="button-wrapper">
+                    <button class="big button">Rejoindre une partie</button>
+                    <button class="big button">Créer une partie</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io({autoConnect: true});
+    </script>
+    <script src="/jquery/jquery.min.js"></script>
+    <script src="../resources/js/main.js"></script>
+</body>
+</html>
